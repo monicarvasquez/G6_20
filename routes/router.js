@@ -5,10 +5,10 @@ var  PasajeroController = require("../controllers/pasajero_controller"),
   router = express.Router();
 
 router
-  //****ALUMNO EJEMPLO****
+  //****PASAJERO****
   .get("/pasajero/getall", PasajeroController.getAll)
-  .get("/pasajero/getOne/:codigo_pasajero", PasajeroController.getOne)
-  //.post("/alumno/insertar/:no_cuenta", AlumnoController.post)
+  .post("/pasajero/getOne/:codigo_pasajero", PasajeroController.getOne)
+  .post("/pasajero/insertar/:codigo_pasajero", PasajeroController.post)
   //.put("/alumno/actualizar/:no_cuenta", AlumnoController.put)
   //.delete("/alumno/eliminar/:no_cuenta", AlumnoController.delete)
   //.use(PasajeroController.error404);
