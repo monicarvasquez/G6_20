@@ -1,0 +1,7 @@
+{
+	"host" : "172.174.160.121",
+	"port" : 5432,
+ 	"user" : "g6_20",
+	"password" : "dAG0h3zR",
+	"database" : "g6_20"
+}
