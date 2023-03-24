@@ -14,9 +14,20 @@ PasajeroModel.post = (data,cb)=> conn.query("call public.sp_pasajero_insert ($1,
     data.apellidos,
     data.fecha_registro,
     data.nacionalidad,
-    data.numero_Telefonico,
+    data.numero_telefonico,
     data.email
 ],
 cb);
 
+PasajeroModel.put=(data,cb) => conn.query("call public.sp_pasajero_update ($1,$2,$3,$4,$5,$6,$7)",
+[
+    data.codigo_pasajero,
+    data.nombres,
+    data.apellidos,
+    data.fecha_registro,
+    data.nacionalidad,
+    data.numero_telefonico,
+    data.email
+],
+cb);
 module.exports = PasajeroModel;

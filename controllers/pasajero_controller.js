@@ -60,7 +60,7 @@ PasajeroController.post=(req, res, next)=> {
         apellidos: req.body.apellidos,
         fecha_registro: req.body.fecha_registro,
         nacionalidad:req.body.nacionalidad,
-        numero_Telefonico: req.body.numero_telefonico,
+        numero_telefonico: req.body.numero_telefonico,
         email: req.body.email
     }
     console.log(pasajero)
@@ -77,6 +77,35 @@ PasajeroController.post=(req, res, next)=> {
         }
         else{
             res.send('Pasajero Ingresado de Forma Correcta')
+            //res.redirect('/')
+        }
+    })
+ }
+
+PasajeroController.put=(req, res, next)=> {
+    let pasajero={
+        codigo_pasajero: req.body.codigo_pasajero,
+        nombres: req.body.nombres,
+        apellidos: req.body.apellidos,
+        fecha_registro: req.body.fecha_registro,
+        nacionalidad:req.body.nacionalidad,
+        numero_telefonico: req.body.numero_telefonico,
+        email: req.body.email
+    }
+    console.log(pasajero)
+
+    PasajeroModel.put(pasajero,(err)=>{
+        if(err){
+            let locals={
+                title: `Error al salvar el registro con el id: ${pasajero.codigo_pasajero}`,
+                description: "Error de Sintaxis SQL",
+                error: err
+            }
+            //res.render('error',locals)
+            res.status(520).json(err); 
+        }
+        else{
+            res.send('Pasajero Actualizado de Forma Correcta')
             //res.redirect('/')
         }
     })
