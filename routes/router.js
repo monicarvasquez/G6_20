@@ -3,6 +3,7 @@
 var  PasajeroController = require("../controllers/pasajero_controller"),
      AvionController = require("../controllers/avion_controller"),
      ReservaController = require("../controllers/reserva_controller"),
+     VueloController = require("../controllers/vuelo_controller"),
   express = require("express"),
   router = express.Router();
 
@@ -25,6 +26,12 @@ router
     .post("/reserva/insertar/:numero_de_reservacion",ReservaController.post)
     .put("/reserva/actualizar/:numero_de_reservacion",ReservaController.put)
     .delete("/reserva/eliminar/:numero_de_reservacion",ReservaController.delete)
+
+    //****VUELO****
+    .get("/vuelo/getall", VueloController.getAll)
+    .post("/vuelo/getOne/:codigo_de_vuelo", VueloController.getOne)
+    .post("/vuelo/insertar/:codigo_de_vuelo", VueloController.post)
+    .put("/vuelo/actualizar/:codigo_de_vuelo", VueloController.put)
 
     .use(ReservaController.error404);
 
