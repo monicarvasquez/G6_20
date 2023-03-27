@@ -16,24 +16,26 @@ router
   //.delete("/alumno/eliminar/:no_cuenta", AlumnoController.delete)
   //.use(PasajeroController.error404);
  
-    //****AVION****
-    .get("/avion/getall", AvionController.getAll)
-    .post("/avion/getOne/:num_avion", AvionController.getOne)
+  //****AVION****
+  .get("/avion/getall", AvionController.getAll)
+  .post("/avion/getOne/:num_avion", AvionController.getOne)
 
-    //****Reserva****/
-    .get("/reserva/getall", ReservaController.getAll)
-    .post("/reserva/getone/:numero_de_reservacion",ReservaController.getOne)
-    .post("/reserva/insertar/:numero_de_reservacion",ReservaController.post)
-    .put("/reserva/actualizar/:numero_de_reservacion",ReservaController.put)
-    .delete("/reserva/eliminar/:numero_de_reservacion",ReservaController.delete)
+   //****Reserva****
+  .get("/reserva/getAll", ReservaController.getAll)
+  .post("/reserva/getone/:numero_de_reservacion",ReservaController.getOne)
+  .post("/reserva/insertar/:numero_de_reservacion",ReservaController.post)
+  .put("/reserva/actualizar/:numero_de_reservacion",ReservaController.put)
+  .delete("/reserva/eliminar/:numero_de_reservacion",ReservaController.delete)
+  
 
-    //****VUELO****
-    .get("/vuelo/getall", VueloController.getAll)
-    .post("/vuelo/getOne/:codigo_de_vuelo", VueloController.getOne)
-    .post("/vuelo/insertar/:codigo_de_vuelo", VueloController.post)
-    .put("/vuelo/actualizar/:codigo_de_vuelo", VueloController.put)
+  //****VUELO****
+  .get("/vuelo/getall", VueloController.getAll)
+  .post("/vuelo/getOne/:codigo_de_vuelo", VueloController.getOne)
+  .post("/vuelo/insertar/:codigo_de_vuelo", VueloController.post)
+  .put("/vuelo/actualizar/:codigo_de_vuelo", VueloController.put)
 
-    .use(ReservaController.error404);
+  .use(ReservaController.error404);
+  
 
 
 module.exports = router;
