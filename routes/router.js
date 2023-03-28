@@ -19,6 +19,8 @@ router
   //****AVION****
   .get("/avion/getall", AvionController.getAll)
   .post("/avion/getOne/:num_avion", AvionController.getOne)
+  .post("/avion/insertar/:num_avion", AvionController.post)
+
 
    //****Reserva****
   .get("/reserva/getAll", ReservaController.getAll)
