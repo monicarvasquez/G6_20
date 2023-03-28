@@ -20,6 +20,7 @@ router
   .get("/avion/getall", AvionController.getAll)
   .post("/avion/getOne/:num_avion", AvionController.getOne)
   .post("/avion/insertar/:num_avion", AvionController.post)
+  .put("/avion/actualizar/:num_avion", AvionController.put)
 
 
    //****Reserva****
