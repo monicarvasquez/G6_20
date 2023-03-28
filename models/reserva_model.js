@@ -19,7 +19,7 @@ var conn = require("../config/db-connection"),
     data.nombre_psajero,
     data.ciudad_destino,
     data.fecha_de_vuelo,
-    data.precio_vuelo
+    data.precio_vuelo,
    ],
    cb);
 
@@ -33,9 +33,11 @@ var conn = require("../config/db-connection"),
     data.nombre_psajero,
     data.ciudad_destino,
     data.fecha_de_vuelo,
-    data.precio_vuelo
+    data.precio_vuelo,
    ],
    cb);
+
+   ReservaModel.delete= (data, cb) =>conn.query("call public.sp_reserva_delete ($1)",[data.numero_de_reservacion],cb);
 
 
   module.exports = ReservaModel;

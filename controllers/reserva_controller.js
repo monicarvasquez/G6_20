@@ -125,6 +125,29 @@ var ReservaModel = require('../models/reserva_model'),
         })
     }
 
+    ReservaController.delete=(req, res, next)=> {
+        let reserva={
+            numero_de_reservacion: req.body.numero_de_reservacion
+        }
+        console.log(reserva)
+    
+        ReservaModel.delete(reserva,(err,rows)=>
+        {  console.log(err,'---',rows)
+        if(err)
+        {
+            let locals={
+                title: `Error al consultar la base de datos con el NR: ${reserva.numero_de_reservacion}`,
+                descripcion: 'Error de Sintaxis SQL',
+                error: err
+            }
+            res.status(520).json(err);
+        }
+        else{
+            
+            res.send('Reserva Eliminada')
+        }
+        })
+    }
     
 
     ReservaController.error404 = (req, res, next) =>{
