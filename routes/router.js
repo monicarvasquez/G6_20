@@ -35,11 +35,13 @@ router
   //****VUELO****
   .get("/vuelo/getall", VueloController.getAll)
   .post("/vuelo/getOne/:codigo_de_vuelo", VueloController.getOne)
-  //.post("/vuelo/insertar/:codigo_de_vuelo", VueloController.post)
-  //.put("/vuelo/actualizar/:codigo_de_vuelo", VueloController.put)
+  .post("/vuelo/insertar/:codigo_de_vuelo", VueloController.post)
+  .put("/vuelo/actualizar/:codigo_de_vuelo", VueloController.put)
+  .delete("/vuelo/eliminar/:codigo_de_vuelo", VueloController.delete)
 
   .use(PasajeroController.error404)
   .use(AvionController.error404)
+  .use(VueloController.error404)
   //.use(ReservaController.error404);
   
 
