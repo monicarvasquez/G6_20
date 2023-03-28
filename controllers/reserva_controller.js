@@ -90,6 +90,43 @@ var ReservaModel = require('../models/reserva_model'),
         })
     }
 
+    ReservaController.put = (req, res, next) =>{
+        let reserva = {
+
+            numero_de_reservacion : req.body.numero_de_reservacion,
+            codigo_de_vuelo : req.body.codigo_de_vuelo,
+            codigo_de_pasajero : req.body.codigo_de_pasajero,
+            nombre_psajero : req.body.nombre_psajero,
+            ciudad_destino : req.body.ciudad_destino,
+            fecha_de_vuelo : req.body.fecha_de_vuelo,
+            precio_vuelo : req.body.precio_vuelo
+
+        }
+
+        console.log(reserva)
+
+        ReservaModel.put(reserva, (err) => {
+            if(err)
+            {
+                let locals = {
+                    title : `Error al Actualizar la Reserva con el Id: ${reserva.numero_de_reservacion}`,
+                    description : "Error de Sintaxis SQL",
+                    error : err
+                }
+
+                //res.render('error', locals)
+                res.status(520).json(err);
+            }
+            else
+            {
+                res.send('Reserva Actualizada de Forma Correcta')
+                //res.redirect('/')
+            }
+        })
+    }
+
+    
+
     ReservaController.error404 = (req, res, next) =>{
         let error = new Error(),
             locals = {

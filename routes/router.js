@@ -25,14 +25,14 @@ router
   .post("/reserva/getone/:numero_de_reservacion",ReservaController.getOne)
   .post("/reserva/insertar/:numero_de_reservacion",ReservaController.post)
   .put("/reserva/actualizar/:numero_de_reservacion",ReservaController.put)
-  .delete("/reserva/eliminar/:numero_de_reservacion",ReservaController.delete)
+  //.delete("/reserva/eliminar/:numero_de_reservacion",ReservaController.delete)
   
 
   //****VUELO****
   .get("/vuelo/getall", VueloController.getAll)
   .post("/vuelo/getOne/:codigo_de_vuelo", VueloController.getOne)
-  .post("/vuelo/insertar/:codigo_de_vuelo", VueloController.post)
-  .put("/vuelo/actualizar/:codigo_de_vuelo", VueloController.put)
+  //.post("/vuelo/insertar/:codigo_de_vuelo", VueloController.post)
+  //.put("/vuelo/actualizar/:codigo_de_vuelo", VueloController.put)
 
   .use(ReservaController.error404);
   
