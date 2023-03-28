@@ -21,6 +21,7 @@ router
   .post("/avion/getOne/:num_avion", AvionController.getOne)
   .post("/avion/insertar/:num_avion", AvionController.post)
   .put("/avion/actualizar/:num_avion", AvionController.put)
+  .delete("/avion/eliminar/:num_avion", AvionController.delete)
 
 
    //****Reserva****
@@ -38,7 +39,8 @@ router
   //.put("/vuelo/actualizar/:codigo_de_vuelo", VueloController.put)
 
   .use(PasajeroController.error404)
-  .use(ReservaController.error404);
+  .use(AvionController.error404)
+  //.use(ReservaController.error404);
   
 
 

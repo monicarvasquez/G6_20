@@ -32,4 +32,7 @@ AvionModel.put=(data,cb) => conn.query("call public.sp_avion_update ($1,$2,$3,$4
 ],
 cb);
 
+AvionModel.delete= (data, cb) =>conn.query("call public.sp_avion_delete ($1)",[data.num_avion],cb);
+
+
     module.exports = AvionModel;

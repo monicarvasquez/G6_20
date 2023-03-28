@@ -109,4 +109,36 @@ AvionController.post=(req, res, next)=> {
     })
  }
 
+ AvionController.delete=(req, res, next)=> {
+    let avion={
+        num_avion: req.body.num_avion
+    }
+    console.log(avion)
+
+    AvionModel.delete(avion,(err,rows)=>
+    {  console.log(err,'---',rows)
+    if(err)
+    {
+        let locals={
+            title: `Error al consultar la base de datos con el Id: ${avion.num_avion}`,
+            descripcion: 'Error de Sintaxis SQL',
+            error: err
+        }
+        res.status(520).json(err);
+    }
+    else{
+        
+        res.send('Registro Eliminado')
+    }
+    })
+}
+AvionController.error404=(req, res, next)=>{
+    let error = new Error(),
+    locals ={
+        title: `Error 404`,
+        descripcion: 'Recurso no encontrado',
+        error: error
+    }
+}
+
  module.exports=AvionController;
