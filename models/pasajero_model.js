@@ -30,4 +30,6 @@ PasajeroModel.put=(data,cb) => conn.query("call public.sp_pasajero_update ($1,$2
     data.email
 ],
 cb);
+PasajeroModel.delete= (data, cb) =>conn.query("call public.sp_pasajero_delete ($1)",[data.codigo_pasajero],cb);
+
 module.exports = PasajeroModel;

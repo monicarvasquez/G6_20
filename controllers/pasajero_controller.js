@@ -110,4 +110,39 @@ PasajeroController.put=(req, res, next)=> {
         }
     })
  }
+ PasajeroController.delete=(req, res, next)=> {
+    let pasajero={
+        codigo_pasajero: req.body.codigo_pasajero
+    }
+    console.log(pasajero)
+
+    PasajeroModel.delete(pasajero,(err,rows)=>
+    {  console.log(err,'---',rows)
+    if(err)
+    {
+        let locals={
+            title: `Error al consultar la base de datos con el Id: ${pasajero.codigo_pasajero}`,
+            descripcion: 'Error de Sintaxis SQL',
+            error: err
+        }
+        res.status(520).json(err);
+    }
+    else{
+        
+        res.send('Pasajero Eliminado De Forma Correcta')
+    }
+    })
+}
+
+PasajeroController.addForm = (req,res,next) => res.render('add-pasajero',{title : 'Agregar Pasajero'})
+
+PasajeroController.error404=(req, res, next)=>{
+    let error = new Error(),
+    locals ={
+        title: `Error 404`,
+        descripcion: 'Recurso no encontrado',
+        error: error
+    }
+}
+
  module.exports=PasajeroController;
